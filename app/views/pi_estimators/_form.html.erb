@@ -1,0 +1,18 @@
+<%= form_with(model: pi_estimator, local: true) do |form| %>
+  <% if pi_estimator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pi_estimator.errors.count, "error") %> prohibited this pi_estimator from being saved:</h2>
+
+      <ul>
+      <% pi_estimator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.text_area :coords %>
+    <%= form.submit %>
+  </div>
+<% end %>

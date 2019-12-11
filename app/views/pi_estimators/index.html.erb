@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pi Estimators</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pi_estimators.each do |pi_estimator| %>
+      <tr>
+        <td><%= link_to 'Show', pi_estimator %></td>
+        <td><%= link_to 'Edit', edit_pi_estimator_path(pi_estimator) %></td>
+        <td><%= link_to 'Destroy', pi_estimator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pi Estimator', new_pi_estimator_path %>
