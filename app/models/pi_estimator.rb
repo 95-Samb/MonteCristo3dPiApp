@@ -30,7 +30,9 @@ class PiEstimator < ApplicationRecord
   end
   def check_for_coord_length(list)
     if list.any? { |e| e.length != 3  }
-      raise "coordinates must be in 3d, ie [1,1,1]"
+      return false
+    else
+      true
     end
   end
 end

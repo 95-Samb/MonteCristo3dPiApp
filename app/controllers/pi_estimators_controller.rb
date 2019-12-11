@@ -11,8 +11,11 @@ class PiEstimatorsController < ApplicationController
   # GET /pi_estimators/1.json
   def show
     @coords = eval(PiEstimator.find(params[:id]).coords)
-    PiEstimator.find(params[:id]).check_for_coord_length(@coords)
-    @result = PiEstimator.find(params[:id]).mCarlo3D_pi(@coords)
+    if PiEstimator.find(params[:id]).check_for_coord_length(@coords)
+      @result = PiEstimator.find(params[:id]).mCarlo3D_pi(@coords)
+    else
+      @result = "Error please enter acceptable coordiantes eg [1,1,1]"
+    end
   end
 
   # GET /pi_estimators/new
